@@ -1,0 +1,53 @@
+body{
+  /* background-color: #fabea7; */
+  background-color: #393e46;
+}
+h1{
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 6rem;
+  /* color: #9cada4; */
+  color: #00adb5;
+}
+h3{
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  /* color: #9cada4; */
+  font-size:2rem;
+  color: #00adb5;
+}
+
+h2{
+  text-align: center;
+  color: #00adb5;
+  margin-top: 10%;
+}
+.container{
+  text-align: center;
+}
+.pin-icon{
+  padding: 7% 15%;
+  margin-top: 20%;
+  transform: rotateX(180deg);
+}
+.ball-icon{
+  padding-top: 2rem;
+}
+
+.btn{
+  margin-bottom: 5%;
+  margin-right: 50%;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 1028px) {
+  .h1{
+    font-size: 3rem;
+  }
+  .h3{
+    font-size = 1rem;
+  }
+  .pin-icon{
+    margin-top: 40%;
+  }
