@@ -18,7 +18,7 @@ myVar = setInterval(function() {
   ballcolor = guess();
   randomColor(ballcolor);
 
-  while(oldball === ballcolor){
+  while (oldball === ballcolor) {
     ballcolor = guess();
     randomColor(ballcolor);
   }
@@ -32,6 +32,7 @@ myVar = setInterval(function() {
   // DETECT CLICK
 
   $(".pin-icon").click(function() {
+    sound("red");
     if (miss > 3) {
       wrong();
       myStopFunction();
@@ -41,10 +42,10 @@ myVar = setInterval(function() {
         $("h3").text(level);
         level = level + 1;
         oldpin = pincolor;
-        while(pincolor == oldpin){
-        pincolor = guess();
-        pincolorfunction(pincolor);
-      }
+        while (pincolor == oldpin) {
+          pincolor = guess();
+          pincolorfunction(pincolor);
+        }
         miss = 0;
         console.log("success");
       } else if (pincolor != ballcolor) {
@@ -58,6 +59,7 @@ myVar = setInterval(function() {
   // DETECT keypress
 
   $(document).keypress(function() {
+    sound("red");
     if (miss > 3) {
       wrong();
       myStopFunction();
@@ -67,10 +69,10 @@ myVar = setInterval(function() {
         $("h3").text(level);
         level = level + 1;
         oldpin = pincolor;
-        while(pincolor == oldpin){
-        pincolor = guess();
-        pincolorfunction(pincolor);
-      }
+        while (pincolor == oldpin) {
+          pincolor = guess();
+          pincolorfunction(pincolor);
+        }
         miss = 0;
         console.log("success");
       } else if (pincolor != ballcolor) {
@@ -85,8 +87,8 @@ myVar = setInterval(function() {
   oldball = ballcolor;
   num = 0;
   if (miss === 3) {
-      wrong();
-      myStopFunction();
+    wrong();
+    myStopFunction();
   }
 }, 1000 - (level * 400));
 
@@ -143,15 +145,21 @@ function pincolorfunction(color) {
 function wrong() {
   $("h3").text("You lost");
   $("h1").text("Your score = " + (level - 1));
+  sound("wrong");
   level = 1;
 }
 
-function button() {
-  $("h3").text("This is very simple game when the pin and the ball are of the same color you have to click the pin or press any key on keyboard there are 6 color in game and pin will change its color after each level or sometimes after two level.If you leave the ball 2 times then you will lose");
 
 
 
-  setTimeout(function() {
-    $("h3").text(level);
-  }, 8000);
+// PLAYSOUND
+
+function sound(name) {
+  if (num == 0) {
+    var audio = new Audio("Sounds/" + name + ".mp3");
+    audio.play();
+  } else {
+    var audio = new Audio("Sounds/" + name + ".mp3");
+    audio.play();
+  }
 }
