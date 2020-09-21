@@ -32,13 +32,13 @@ myVar = setInterval(function() {
   // DETECT CLICK
 
   $(".pin-icon").click(function() {
-    sound("red");
     if (miss > 3) {
       wrong();
       myStopFunction();
     }
     if (num === 0) {
       if (pincolor == ballcolor) {
+        sound("red");
         $("h3").text(level);
         level = level + 1;
         oldpin = pincolor;
@@ -59,13 +59,14 @@ myVar = setInterval(function() {
   // DETECT keypress
 
   $(document).keypress(function() {
-    sound("red");
+
     if (miss > 3) {
       wrong();
       myStopFunction();
     }
     if (num === 0) {
       if (pincolor == ballcolor) {
+        sound("red");
         $("h3").text(level);
         level = level + 1;
         oldpin = pincolor;
@@ -74,7 +75,6 @@ myVar = setInterval(function() {
           pincolorfunction(pincolor);
         }
         miss = 0;
-        console.log("success");
       } else if (pincolor != ballcolor) {
         wrong();
         myStopFunction();
@@ -90,7 +90,7 @@ myVar = setInterval(function() {
     wrong();
     myStopFunction();
   }
-}, 1000 - (level * 400));
+}, 1000 - (level * 350));
 
 
 function myStopFunction() {
