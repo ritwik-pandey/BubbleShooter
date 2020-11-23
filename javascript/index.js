@@ -1,7 +1,7 @@
 started = false;
 level = 1;
 var myVar;
-
+mybutton = document.getElementById("mybtn");
 // MAIN GAME
 
 var ballcolor;
@@ -28,6 +28,7 @@ myVar = setInterval(function() {
   if (miss > 3) {
     wrong();
     myStopFunction();
+    mybutton.style.display = "block";
   }
   // DETECT CLICK
 
@@ -35,6 +36,7 @@ myVar = setInterval(function() {
     if (miss > 3) {
       wrong();
       myStopFunction();
+      mybutton.style.display = "block";
     }
     if (num === 0) {
       if (pincolor == ballcolor) {
@@ -51,6 +53,7 @@ myVar = setInterval(function() {
       } else if (pincolor != ballcolor) {
         wrong();
         myStopFunction();
+        mybutton.style.display = "block";
       }
       ++num;
     }
@@ -63,6 +66,7 @@ myVar = setInterval(function() {
     if (miss > 3) {
       wrong();
       myStopFunction();
+      mybutton.style.display = "block";
     }
     if (num === 0) {
       if (pincolor == ballcolor) {
@@ -78,6 +82,7 @@ myVar = setInterval(function() {
       } else if (pincolor != ballcolor) {
         wrong();
         myStopFunction();
+        mybutton.style.display = "block";
       }
       ++num;
     }
@@ -87,8 +92,9 @@ myVar = setInterval(function() {
   oldball = ballcolor;
   num = 0;
   if (miss === 3) {
-    wrong();
+    wrongMiss();
     myStopFunction();
+    mybutton.style.display = "block";
   }
 }, 1000 - (level * 350));
 
@@ -149,6 +155,13 @@ function wrong() {
   level = 1;
 }
 
+function wrongMiss() {
+  $("h3").text("You lost because you left the ball more than 2 times");
+  $("h1").text("Your score = " + (level - 1));
+  sound("wrong");
+  level = 1;
+}
+
 
 
 
@@ -162,4 +175,8 @@ function sound(name) {
     var audio = new Audio("Sounds/" + name + ".mp3");
     audio.play();
   }
+}
+
+function reload(){
+   window.location.reload();
 }

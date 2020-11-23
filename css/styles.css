@@ -1,6 +1,6 @@
 body{
    /* background-color: #fabea7;  */
-   background-color: #393e46; 
+   background-color: #393e46;
 }
 h1{
   text-align: center;
@@ -37,6 +37,11 @@ h2{
 .btn{
   margin-bottom: 5%;
   margin-right: 50%;
+}
+
+.reload{
+  margin-left:  48%;
+  display: none;
 }
 
 /* RESPONSIVE */
